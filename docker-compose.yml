@@ -87,7 +87,14 @@ x-quorum-def:
           --allow-insecure-unlock \
           --nousb \
           --password /examples/passwords.txt \
-          --graphql --graphql.vhosts=* --ws --wsport 23000 --wsapi admin,eth,debug --wsorigins=* --gcmode=archive \
+          --ws \
+          --wsaddr 0.0.0.0 \
+          --wsorigins "*" \
+          --wsapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,raft,quorumPermission \
+          --wsport 23000 \
+          --graphql \
+          --graphql.vhosts '*' \
+          --gcmode=archive \
           ${QUORUM_GETH_ARGS:-} $${GETH_ARGS_${QUORUM_CONSENSUS:-istanbul}}
       
      
